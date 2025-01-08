@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { enhance, type SubmitFunction } from '$app/forms';
+	import { enhance } from '$app/forms';
+	import type { SubmitFunction } from '@sveltejs/kit';
 	import { page } from '$app/stores';
 	import '$lib/app.css';
 	import { themes } from '$lib/utils/themes';
@@ -19,11 +20,15 @@
 			<a href="/" class="font-bold text-primary text-xl">Sveltekit</a>
 		</div>
 
+		<a href="/search" class="btn btn-ghost">
+			Posts
+		</a>
+
 		<div class="">
 			<div class="dropdown dropdown-hover dropdown-end">
-				<!-- svelte-ignore a11y-label-has-associated-control -->
+				<!-- svelte-ignore a11y_label_has_associated_control -->
 				<label class="btn">Theme</label>
-				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+				<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 				<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 h-96 overflow-scroll">
 					<form method="POST" use:enhance={submitUpdateTheme}>
 						{#each themes as theme}
