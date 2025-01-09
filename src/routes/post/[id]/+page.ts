@@ -11,8 +11,13 @@ export const load: PageLoad = async ({fetch, params}) => {
         }
 
         const data = await response.json();
+        const movieId = data.movie;
+        console.log(movieId);
+        const movieResponse = await fetch(`http://127.0.0.1:8000/api/movie/${movieId}/`);
+        console.log(movieResponse);
+        const movieData = await movieResponse.json();
         // Return the fetched data as the response
-        return {post: data};
+        return {post: data, movie: movieData};
     } catch (error) {
         console.error('Error fetching data:', error);
     }
