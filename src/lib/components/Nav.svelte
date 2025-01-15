@@ -14,10 +14,10 @@
 	};
 </script>
 
-<div class="bg-base-100 sticky top-0 shadow-lg z-40">
-	<div class="flex items-center justify-between p-2 w-full max-w-4xl mx-auto">
+<div class="bg-opacity-0 w-screen absolute top-0 z-40">
+	<div class="flex items-center justify-between p-2 w-screen max-w-4xl mx-auto">
 		<div class="">
-			<a href="/" class="font-bold text-primary text-xl">Sveltekit</a>
+			<a href="/" class="font-bold text-xl nunito-sans-text">CINEMAHUB</a>
 		</div>
 
 		<a href="/search" class="btn btn-ghost">
@@ -25,7 +25,7 @@
 		</a>
 
 		<div class="">
-			<div class="dropdown dropdown-hover dropdown-end">
+			<div class="dropdown dropdown-hover dropdown-end opacity-0">
 				<!-- svelte-ignore a11y_label_has_associated_control -->
 				<label class="btn">Theme</label>
 				<!-- svelte-ignore a11y_no_noninteractive_tabindex -->

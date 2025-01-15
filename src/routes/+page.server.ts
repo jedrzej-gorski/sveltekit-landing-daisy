@@ -1,5 +1,5 @@
 import { redirect } from "@sveltejs/kit";
-import type { Actions } from "./$types";
+import type { Actions, PageServerLoad } from "./$types";
 
 export const actions: Actions = {
 	setTheme: async ({ url, cookies }) => {
@@ -15,4 +15,21 @@ export const actions: Actions = {
 
 		redirect(303, redirectTo ?? "/");
 	},
+};
+
+export const load: PageServerLoad = async ({fetch, params}) => {
+    try {
+        const url = `http://localhost:8000/api/recent/`;
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch data from the external server.');
+        }
+
+        const data = await response.json();
+        return {recentFilms: data};
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 };

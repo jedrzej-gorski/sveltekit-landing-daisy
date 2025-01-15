@@ -3,7 +3,7 @@
 </script>
 
 <a
-	class="w-full text-nowrap text-neutral-content bg-neutral rounded-lg shadow-lg p-4 text-xl font-bold text-center hover:bg-base-300 transition-all duration-300"
+	class="text-nowrap nunito-sans-text text-base-content underline opacity-75 p-4 text-sm md:text-lg sm:text-md font-bold text-center hover:bg-base-300 transition-all duration-300"
 	href="/page/{id}"
 >
 	<div>{title}</div>

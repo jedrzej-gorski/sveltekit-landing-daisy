@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@splidejs/svelte-splide':
+        specifier: ^0.2.9
+        version: 0.2.9
     devDependencies:
       '@playwright/test':
         specifier: ^1.28.1
@@ -569,6 +573,12 @@ packages:
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
+
+  '@splidejs/splide@4.1.4':
+    resolution: {integrity: sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==}
+
+  '@splidejs/svelte-splide@0.2.9':
+    resolution: {integrity: sha512-04ekJnDIJKEAhklKQMhkg4Yx0Ihtkk18eA9JeHPON0lDTngQxlOYdEYTJWH2UON45VxmVqoLHv04I++JphO36w==}
 
   '@sveltejs/adapter-auto@3.3.1':
     resolution: {integrity: sha512-5Sc7WAxYdL6q9j/+D0jJKjGREGlfIevDyHSQ2eNETHcB1TKlQWHcAo8AS8H1QdjNvSXpvOwNjykDUHPEAyGgdQ==}
@@ -2275,6 +2285,12 @@ snapshots:
     optional: true
 
   '@sinclair/typebox@0.27.8': {}
+
+  '@splidejs/splide@4.1.4': {}
+
+  '@splidejs/svelte-splide@0.2.9':
+    dependencies:
+      '@splidejs/splide': 4.1.4
 
   '@sveltejs/adapter-auto@3.3.1(@sveltejs/kit@2.10.1(@sveltejs/vite-plugin-svelte@4.0.2(svelte@5.10.1)(vite@5.4.11))(svelte@5.10.1)(vite@5.4.11))':
     dependencies:

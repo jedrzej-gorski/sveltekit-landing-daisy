@@ -1,11 +1,19 @@
 <script>
-	import Link from "./Link.svelte";
-	let {pages} = $props();
+	import Link from './Link.svelte';
+	let { pages } = $props();
 </script>
-<footer class="footer footer-center p-10 bg-base-content text-primary-content">
-	<div class="flex flex-col md:flex-row gap-2 xl:gap-5">
-		{#each pages.data as page}
-			<Link id={page.id} title={page.title} />
-		{/each}
-	</div>
-</footer>
+
+<div class="px-[10%] flex flex-row gap-5">
+	{#each pages.data as page, index}
+		{#if index == pages.data.length - 1}
+			<div class="flex-grow"></div>
+		{/if}
+		<Link id={page.id} title={page.title} />
+	{/each}
+</div>
+
+<style>
+	.footer-gradient {
+		mask-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+	}
+</style>
