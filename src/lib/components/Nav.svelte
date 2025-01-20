@@ -29,7 +29,12 @@
 				<!-- svelte-ignore a11y_label_has_associated_control -->
 				<label class="btn btn-ghost nunito-sans-text rounded-sm">{$page.data.user.first_name.toUpperCase()} {$page.data.user.last_name.toUpperCase()}</label>
 				<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-				<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-sm">
+				<ul tabindex="0" class="dropdown-content menu p-0 shadow bg-base-100 rounded-sm">
+					<li>
+						<a class="btn btn-primary nunito-sans-text rounded-sm" href="/editor/new"
+							>+NEW POST</a
+						>
+					</li>
 					<li>
 						<a class="btn btn-ghost nunito-sans-text rounded-sm" href="/blog/{$page.data.user.id}"
 							>BLOG</a
