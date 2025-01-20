@@ -2,7 +2,7 @@ import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({fetch, params}) => {
     try {
-        const url = `http://127.0.0.1:8000/api/page/${params.id}/`;
+        const url = `http://localhost:8000/api/page/${params.id}/`;
 
         const response = await fetch(url);
 

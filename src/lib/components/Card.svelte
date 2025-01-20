@@ -1,12 +1,14 @@
 <script>
     let {title, content, author, image, id} = $props();
 	let height = $state(0);
+
+
 </script>
 
-<a href={`/post/${id}`} class="w-[300px] card flex bg-base-100 shadow-xl image-full" style="background-image: url('http://127.0.0.1:8000/{image}'); background-size: cover;">
+<a href={`/post/${id}`} class="w-[300px] card flex bg-base-100 shadow-xl image-full" style={`background-image: url('http://localhost:8000${image}'); background-size: cover;`}>
 	<div class="card-body h-[225px]">
-		<h2 class="card-title overflow-hidden h-[50px]">{title}</h2>
-		<div class="overflow-hidden flex-grow">
+		<h2 class="card-title overflow-hidden nunito-sans-text font-bold h-[50px]">{title}</h2>
+		<div class="overflow-hidden flex-grow nunito-sans-text">
 			<p class={height > 151 ? 'card-body-scroll' : ''} bind:clientHeight={height}>{content}</p>
 		</div>
 		<!--<div class="card-actions justify-end">

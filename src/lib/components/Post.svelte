@@ -1,39 +1,26 @@
 <script>
-	let { title, content, author, id, description, movie } = $props();
+	let { title, content, author, id, description, movie, created_at } = $props();
 </script>
 
-<div class="post-container mx-5 my-2">
+<div class="flex rounded-sm p-7 flex-col gap-3 justify-center w-[70%]  my-[80px]">
+	<div class=" nunito-sans-text flex flex-row items-center gap-2 py-5 justify-start">
+		<img
+		src={`http://localhost:8000/${author.image}`}
+		class="h-[70px] w-[70px] object-cover rounded-full"
+			alt="Author Image"
+		/>
+		<div class="flex flex-col items-start gap-3 ">
+			<div class="text-md">{author.first_name} {author.last_name}</div>
+			<div class="text-md">{new Date(created_at).toLocaleDateString()}</div>
+		</div>
+	</div>
+	<div class="merriweather-title text-5xl w-full text-center">{title.toUpperCase()}</div>
 	{#if description}
-		<div class="flex flex-row items-center gap-2 justify-start">
-			<div class="flex flex-col items-center gap-3">
-				<div class="text-sm">{author.first_name} {author.last_name}</div>
-				<img
-					src={`http://127.0.0.1:8000/${author.image}`}
-					class="h-[100px] w-[100px] object-cover rounded-full"
-					alt="Author Image"
-				/>
-				<div class="text-sm">{movie.title}</div>
-			</div>
-			<div class="text-5xl font-bold max-w-[35%] shrink text-justify">{title.toUpperCase()}</div>
-			<p class="flex-grow basis-[50%] text-center">{description}</p>
-		</div>
-
-		<hr class="taperline" />
-	{:else}
-		<div class="flex flex-col items-center">
-			<div class="text-5xl font-bold max-w-[35%] text-center">{title.toUpperCase()}</div>
-			<hr class="taperline w-[50%]" />
-			<div class="flex flex-col items-center gap-5">
-				<div class="text-sm">{author.first_name} {author.last_name}</div>
-				<img
-					src={`http://127.0.0.1:8000/${author.image}`}
-					class="h-[100px] w-[100px] object-cover rounded-full"
-					alt="Author Image"
-				/>
-				<div class="text-sm">{movie.title}</div>
-			</div>
-			<hr class="taperline w-[15%]" />
-		</div>
+		<div class="nunito-sans-text text-center font-bold text-lg">{description}</div>
 	{/if}
-	{@html content}
+	<div class="nunito-sans-text"> {@html content}</div>
+	
 </div>
+
+<style>
+</style>

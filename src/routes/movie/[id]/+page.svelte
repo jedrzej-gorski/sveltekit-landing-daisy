@@ -45,7 +45,6 @@
 			});
 		}
 	});
-    console.log(crew);
 
 	function setActiveTab(tab: number) {
 		activeTab = tab;
@@ -53,9 +52,9 @@
 </script>
 
 <div class="md:mt-[200px] mx-auto md:w-[775px] w-full">
-	<div class="grid grid-cols-1 place-items-center md:grid-cols-7 gap-[24px] w-full">
+	<div class="grid grid-cols-1 place-items-center md:place-items-start md:grid-cols-7 gap-[24px] w-full">
 		<!-- Poster column -->
-		<div class="md:col-start-2 md:col-span-2 flex justify-center mt-16">
+		<div class="md:col-start-2 md:col-span-2 md:grid-start-2 flex justify-center mt-16">
 			<img
 				src={`http://localhost:8000/${data.movie.poster}`}
 				class="w-[200px] h-[285px] object-cover rounded-md"
@@ -100,21 +99,19 @@
 			</div>
 
 			<hr class="w-full break-border opacity-30 relative bottom-[1px]" />
-			<div class="my-[10px]  overflow-y-hidden overflow-x-hidden">
+			<div class="my-[10px]  overflow-y-auto overflow-x-hidden">
 				{#if activeTab == 0}
 					{#each actors as actor}
-						<span
-							class="nunito-sans-text bg-neutral text-neutral-content ease-in-out rounded-md p-1 text-sm mr-[4px] underline"
-							>{actor.full_name}</span
+						<a href={`/crew/${actor.id}`} class="nunito-sans-text bg-neutral text-neutral-content ease-in-out rounded-md p-1 text-sm mr-[4px] underline"
+							>{actor.full_name}</a
 						>
 					{/each}
 				{:else if activeTab == 1}
 					{#each Object.keys(crew) as role}
 						<p class="nunito-sans-text text-sm ml-[4px] opacity-70 mt-2">{role.toUpperCase()}</p>
 						{#each crew[role] as crewMember}
-							<span
-								class="nunito-sans-text bg-neutral text-neutral-content ease-in-out rounded-md p-1 text-sm mr-[4px] underline"
-								>{crewMember.full_name}</span
+							<a href={`/crew/${crewMember.id}`} class="nunito-sans-text bg-neutral text-neutral-content ease-in-out rounded-md p-1 text-sm mr-[4px] underline"
+								>{crewMember.full_name}</a
 							>
 						{/each}
 					{/each}

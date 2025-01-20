@@ -14,7 +14,7 @@
 </script>
 
 <div class="flex flex-col items-center w-full min-w-[250px] h-full">
-	<div class="w-[80%]">
+	<div class="w-full">
 		<div class="welcome"></div>
 		<div class="merriweather-welcome text-center text-4xl relative bottom-[30px]">
 			<h2>Explore the beauty of cinema.</h2>

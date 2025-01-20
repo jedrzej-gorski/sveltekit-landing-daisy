@@ -61,6 +61,15 @@
       "YTLC" 500;
 }
 
+.merriweather-title {
+    font-family: "Merriweather", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100,
+      "YTLC" 500;
+}
 
 .merriweather-welcome {
     font-family: "Merriweather", serif;
@@ -139,6 +148,11 @@
 
 .break-border {
     border: 1px solid oklch(var(--bc));
+}
+
+.break-border-x {
+    border-left: 1px solid oklch(var(--bc));
+    border-right: 1px solid oklch(var(--bc));
 }
 
 .break-border-btm {

@@ -1,11 +1,10 @@
-import type { PageLoad } from "./$types";
+import type { PageServerLoad } from "./$types";
 
-export const load: PageLoad = async ({fetch, params}) => {
+export const load: PageServerLoad = async ({fetch, params}) => {
     try {
-        const url = `http://127.0.0.1:8000/api/posts/`;
+        const url = `http://localhost:8000/api/posts/`;
 
         const response = await fetch(url);
-        console.log(response);
         if (!response.ok) {
             throw new Error('Failed to fetch data from the external server.');
         }
