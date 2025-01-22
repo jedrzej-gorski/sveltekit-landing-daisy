@@ -38,7 +38,7 @@
 
 </script>
 
-<div class="mt-[150px] mx-auto lg:w-[975px] w-full">
+<div class="mt-[150px] mx-auto lg:w-[975px] w-full bg-base-100 p-5">
     <div class="lg:grid lg:grid-cols-4 lg:place-items-start gap-2 flex flex-col items-center">
         <div class="lg:col-span-3 w-[85%] lg:w-full">
             <div class="text-xl nunito-sans-text opacity-70">FILMS WORKED ON BY</div>

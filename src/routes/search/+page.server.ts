@@ -1,18 +1,38 @@
 import type { PageServerLoad } from "./$types";
 
-export const load: PageServerLoad = async ({fetch, params}) => {
-    try {
-        const url = `http://localhost:8000/api/posts/`;
+export const load: PageServerLoad = async ({ fetch, url }) => {
+    const selectedCategory = url.searchParams.get('category');
+    const activeTab = url.searchParams.get('tab') || 'posts';
 
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error('Failed to fetch data from the external server.');
-        }
+    const [postsRes, moviesRes, categoriesRes] = await Promise.all([
+        fetch('http://localhost:8000/api/posts'),
+        fetch('http://localhost:8000/api/movies'),
+        fetch('http://localhost:8000/api/category')
+    ]);
 
-        const data = await response.json();
-        // Return the fetched data as the response
-        return {posts: data};
-    } catch (error) {
-        console.error('Error fetching data:', error);
+    if (!postsRes.ok || !moviesRes.ok || !categoriesRes.ok) {
+        console.error('Failed to fetch data');
+        return {
+            posts: [],
+            movies: [],
+            categories: [],
+            selectedCategory: null
+        };
     }
+
+    const [posts, movies, categories] = await Promise.all([
+        postsRes.json(),
+        moviesRes.json(),
+        categoriesRes.json()
+    ]);
+
+    return {
+        posts,
+        movies: selectedCategory 
+            ? movies.filter((m: any) => m.category === selectedCategory)
+            : movies,
+        categories,
+        selectedCategory,
+        activeTab
+    };
 };

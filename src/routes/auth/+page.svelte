@@ -24,7 +24,7 @@
 
 <div class="mt-[150px] mx-auto w-[75%]">
 	{#if $page.data.session}
-		<div class="text-center border break-border rounded-sm p-4">
+		<div class="text-center border break-border rounded-sm p-4 bg-base-100">
 			<div class="flex flex-col items-center justify-center mb-4 merriweather-welcome">
 				<small class="nunito-sans-text mb-2">You are currently signed in as</small>
 				{#if $page.data.user}
@@ -47,13 +47,13 @@
 		</div>
 	{:else}
 		<div
-			class="flex flex-col md:flex-row gap-[100px] items-center justify-center max-w-md md:max-w-none md:w-[90%]mx-auto"
+			class="flex flex-col md:flex-row gap-[100px] items-center justify-center max-w-md md:max-w-none md:w-[90%] mx-auto"
 		>
 			<form
 				method="POST"
 				action="?/signin"
 				use:enhance
-				class="w-full flex flex-col items-center justify-center"
+				class="w-full flex flex-col items-center justify-center bg-base-100 rounded-sm p-4 shadow-sm"
 			>
 				<div class="mb-4 w-full">
 					<label for="username" class="block mb-2">Username</label>
@@ -82,7 +82,7 @@
 				method="POST"
 				action="?/signup"
 				use:enhance
-				class="w-full flex flex-col items-center justify-center"
+				class="w-full flex flex-col items-center justify-center bg-base-100 rounded-sm p-4 shadow-sm"
 				on:submit={handleSubmit}
 			>
 				<div class="mb-4 w-full">

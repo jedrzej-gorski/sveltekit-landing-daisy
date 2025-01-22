@@ -21,7 +21,7 @@
 		</div>
 
 		<a href="/search" class="btn btn-ghost nunito-sans-text rounded-sm">
-			POSTS
+			SEARCH
 		</a>
 
 		{#if $page.data.session}
@@ -33,6 +33,11 @@
 					<li>
 						<a class="btn btn-primary nunito-sans-text rounded-sm" href="/editor/new"
 							>+NEW POST</a
+						>
+					</li>
+					<li>
+						<a class="btn btn-ghost nunito-sans-text rounded-sm" href="/drafts"
+							>DRAFTS</a
 						>
 					</li>
 					<li>

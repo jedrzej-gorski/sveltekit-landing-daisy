@@ -51,7 +51,7 @@
 	}
 </script>
 
-<div class="md:mt-[200px] mx-auto md:w-[775px] w-full">
+<div class="md:mt-[200px] mx-auto md:w-[775px] w-full min-h-[400px] bg-base-100 p-5">
 	<div class="grid grid-cols-1 place-items-center md:place-items-start md:grid-cols-7 gap-[24px] w-full">
 		<!-- Poster column -->
 		<div class="md:col-start-2 md:col-span-2 md:grid-start-2 flex justify-center mt-16">

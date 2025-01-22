@@ -13,7 +13,7 @@ export const actions: Actions = {
 			});
 		}
 
-		redirect(303, redirectTo ?? "/");
+		throw redirect(303, redirectTo ?? "/");
 	},
 };
 
