@@ -42,7 +42,8 @@ export const actions = {
         try {
             const title = formData.get('title')?.toString() || '';
             const content = formData.get('description')?.toString() || '';
-            const status = parseInt(formData.get('status')?.toString() || '1');
+            const status = formData.get('status')?.toString() || '1';
+            console.log(formData.get('status')?.toString());
             const movie_id = formData.get('movie_id')?.toString();
             
             // Log all form entries for debugging

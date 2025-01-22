@@ -119,8 +119,12 @@
         formData.append('status', status.toString());
         formData.append('movie_id', selectedMovie.toString());
         
-        // Instead of using fetch directly, submit the form
-        form.submit();
+        // Instead of form.submit(), dispatch the submit event
+        const submitEvent = new SubmitEvent('submit', {
+            bubbles: true,
+            cancelable: true
+        });
+        form.dispatchEvent(submitEvent);
     }
 
     function selectMovie(movie: Movie | null) {
@@ -162,10 +166,13 @@
 <div class="flex flex-col items-center min-h-screen mt-[100px] bg-base-100 p-6 rounded-sm max-w-[60%] w-[60%]">
     <form 
         use:enhance={({ formData }) => {
-            // You can add any pre-submission logic here
-            formData.append('status', '1'); // Default status
+            // Get the status from the hidden input that we'll add
+            const statusInput = document.getElementById('post-status') as HTMLInputElement;
+            if (statusInput) {
+                formData.set('status', statusInput.value);
+            }
+            
             return async ({ result, update }) => {
-                // Handle the result if needed
                 await update();
             };
         }}
@@ -173,6 +180,9 @@
         method="POST" 
         class="w-full"
     >
+        <!-- Add a hidden input for status -->
+        <input type="hidden" id="post-status" name="status" value="1" />
+
         <textarea 
             name="title" 
             bind:value={title} 
@@ -406,14 +416,22 @@
                 <button 
                     type="button"
                     class="btn btn-secondary rounded-sm nunito-sans-text"
-                    onclick={() => submitForm(1)}
+                    onclick={() => {
+                        const statusInput = document.getElementById('post-status') as HTMLInputElement;
+                        statusInput.value = '1';
+                        submitForm(1);
+                    }}
                 >
                     Save as Draft
                 </button>
                 <button 
                     type="button"
                     class="btn btn-primary rounded-sm nunito-sans-text"
-                    onclick={() => submitForm(2)}
+                    onclick={() => {
+                        const statusInput = document.getElementById('post-status') as HTMLInputElement;
+                        statusInput.value = '2';
+                        submitForm(2);
+                    }}
                 >
                     Publish
                 </button>
